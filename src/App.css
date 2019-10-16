@@ -1,22 +1,80 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css?family=Merriweather&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto:700&display=swap');
+
+html, body {
+  padding: 0;
+  margin: 0
 }
 
-.App-logo {
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin: auto;
 }
 
-.App-link {
-  color: #09d3ac;
+.left-half {
+  height: 100vh;
+  background-color: #585858;
+  flex: 1;
+}
+
+.left-container{
+  max-width: 535px;
+  margin-left: auto;
+}
+
+.left-content{
+   padding-right: 80px;
+}
+
+.right-half {
+  height: 100vh;
+  background-color:#ffffff;
+  flex: 1;
+}
+
+.right-container{
+  max-width: 376px;
+  margin-right: auto;
+}
+
+.right-content{
+   padding-left: 24px;
+}
+
+
+form {
+  width: 376px;
+  padding-top: 110px;
+}
+
+@media only screen and (max-width: 800px) {
+  .container {
+    display: block;
+    margin: auto;
+  }
+
+  .left-half {
+    background-color: #585858;
+    flex: 1;
+    height: 100%;
+  }
+  .left-content{
+    padding-left: 24px;
+    padding-bottom: 32px;
+  }
+
+  form{
+    padding-top: 32px;
+    margin: auto;
+  }
+
+  button{
+    width: 100%;
+  }
+
+  .right-container {
+    max-width: none;
+    margin-right: auto;
+  }
+
 }

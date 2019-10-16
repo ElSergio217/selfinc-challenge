@@ -1,0 +1,44 @@
+input {
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background-color:#f7f7f7;
+    border-radius: 6px;
+    border: 1px solid #EAEAEA;
+    height: 48px;
+    text-decoration: none;
+    font-size: 14px;
+    color: #666666;
+    outline: none;
+    padding-left: 16px;
+    margin-bottom: 24px;
+  }
+  
+  input:focus{
+    background-color:#ffffff;
+    border: 1px solid #00adee;
+  }
+  
+  input:valid:required { 
+    background-color:#ffffff;
+    border: 1px solid #00adee;
+  }
+  
+  .formError { 
+    background-color:#ffffff;
+    border: 1px solid #e70000;
+  }
+  
+  .required{
+    color:#e70000;
+    font-family: 'Merriweather', serif;
+    font-size: 12px;
+  }
+  
+  label{
+    color:#666666;
+    font-size: 12px;
+    font-family: 'Merriweather', serif;
+    text-transform: uppercase;
+  }
