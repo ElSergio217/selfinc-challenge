@@ -21,6 +21,8 @@ class App extends Component {
       lastName: '',
       Address: '',
       Address2: '',
+      phoneNumber:'',
+      phoneNumberParsed:'',
       validate: null
     }
 
@@ -28,11 +30,44 @@ class App extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
+
   //Function called everytime a value in a Input is changed
   handleChange(event) {
     this.setState({ 
-     [event.target.name]: event.target.value,
+      [event.target.name]: event.target.value,
     });
+
+    // If event target is a phone Number
+    if(event.target.name === "phoneNumber"){
+
+      //Set Current state to phoneNuber replacing all letters
+      this.setState({ 
+        [event.target.name]: event.target.value.replace(/[A-Za-z]/g, ''),
+      });
+
+      // Remove the brackets if the current value is lover than 5
+      if(event.target.value.length <= 5){
+        this.setState({ 
+          [event.target.name]: event.target.value.replace("(", '').replace(")", '').replace(/[A-Za-z]/g, ''),
+        });
+      }
+
+      // Add brackets if the current length is larger than or equal to 3 and less than or equal to 6
+      if(event.target.value.length >= 3 && event.target.value.length <= 6 && event.target.value.length > this.state.phoneNumber.length){
+        this.setState({ 
+          [event.target.name]: "("+ event.target.value.substring(0,3) + ") " ,
+        });
+      }
+      
+      // Add brackets if the current length is larger than or equal to 9 and less than or equal to 10
+      if(event.target.value.length >= 9 && event.target.value.length <= 10 && event.target.value.length > this.state.phoneNumber.length){
+        this.setState({ 
+          [event.target.name]: event.target.value.substring(0,9) + "-" + event.target.value.substring(9),
+        });
+      }   
+
+    }
+
   }
 
   //Fucntion called when submitting the form. Validates that all required form is filled.
@@ -59,6 +94,8 @@ class App extends Component {
 
                 {/* Sub-Title */}
                 <Text class="sub-title" text="Please Tell us a bit about yourself to get started." />
+
+                <Text class="sub-title" text={this.state.phoneNumberParsed} />
 
               </div>
             </div>
@@ -107,6 +144,16 @@ class App extends Component {
                     currentState={this.state.Address2} 
                     onChange={this.handleChange}
                     isrequired= {false} />
+
+                  {/* phone field */}
+                  <Forminput 
+                    name="phoneNumber" 
+                    label="Phone Number" 
+                    validate={this.state.validate} 
+                    currentState={this.state.phoneNumber} 
+                    onChange={this.handleChange}
+                    isrequired= {false} 
+                    max = "14"/>
 
                   {/* Submit Button */}
                   <Button 

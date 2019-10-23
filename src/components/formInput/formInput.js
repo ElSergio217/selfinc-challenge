@@ -19,7 +19,7 @@ const Forminput= (props) => {
         <br />
 
         {/* Input Field */}
-        <input className= {props.validate && !props.currentState && props.isrequired ? props.validate : ''} type="text" name={props.name} onChange={props.onChange} required/>
+        <input maxLength={props.max} value={props.currentState} className= {props.validate && !props.currentState && props.isrequired ? props.validate : ''} type="text" name={props.name} onChange={props.onChange} required/>
 
     </div>
   );
